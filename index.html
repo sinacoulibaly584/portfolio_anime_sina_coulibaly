@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coulibaly Sina — Animateur 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scrub-rail" aria-hidden="true"><div class="scrub-head" id="scrubHead"></div></div>
+
+<a href="#top" class="logo-fixed">
+  <img src="assets/logo.png" alt="Sina Coulibaly" class="nav-logo-img">
+</a>
+
+<header class="nav" id="mainNav">
+  <nav class="nav-links">
+    <a href="#showreel">Showreel</a>
+    <a href="#projets">Projets</a>
+    <a href="#about">À propos</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <p class="hero-label">PORTFOLIO</p>
+    <h1 class="hero-name">SINA COULIBALY</h1>
+    <p class="hero-role">3D Animator</p>
+  </div>
+</section>
+
+<!-- SHOWREEL -->
+<section id="showreel" class="section">
+  <p class="label">Showreel</p>
+  <h2 class="section-title">Démo reel 2026</h2>
+  <div class="video-player">
+    <iframe
+      src="https://player.vimeo.com/video/1082191614"
+      title="Showreel 2026"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- PRÉSENTATION -->
+<section id="about-intro" class="section presentation">
+  <div class="presentation-inner">
+    <p class="presentation-welcome">Bienvenue,</p>
+    <p class="presentation-text">
+      Animateur 3D spécialisé en character animation et VFX.
+      Ma passion réside dans le mouvement — le timing, le poids,
+      les intentions qui donnent vie à un personnage avant même qu'il parle.
+      Disponible pour projets freelance, studio et jeu vidéo.
+    </p>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets" class="section section-wide">
+  <p class="label">Projets</p>
+  <h2 class="section-title">Sélection de travaux.</h2>
+
+  <div class="project-grid">
+
+    <!--
+      GRANDE VIGNETTE (pleine largeur) → page dédiée
+      data-type="page"  data-href="projets/nom-projet.html"
+      Remplace le style background-image par ton image
+    -->
+    <a class="proj proj-featured" href="projets/projet-1.html"
+       data-type="page"
+       style="background-image: url('assets/thumbs/projet-1.jpg')">
+      <div class="proj-overlay">
+        <span class="proj-title">Nom du projet vedette</span>
+        <span class="proj-date">2025 — Character Animation</span>
+      </div>
+    </a>
+
+    <!--
+      VIGNETTES NORMALES → lightbox vidéo
+      data-type="video"  data-src="https://player.vimeo.com/video/TON_ID?autoplay=1"
+      Remplace background-image et data-src par tes vraies données
+    -->
+    <a class="proj" href="#"
+       data-type="video"
+       data-src="https://player.vimeo.com/video/1082191614?autoplay=1"
+       style="background-image: url('assets/thumbs/projet-2.jpg')">
+      <div class="proj-overlay">
+        <span class="proj-title">Projet 2</span>
+        <span class="proj-date">2025 — VFX</span>
+      </div>
+    </a>
+
+    <a class="proj" href="#"
+       data-type="video"
+       data-src="https://player.vimeo.com/video/1082191614?autoplay=1"
+       style="background-image: url('assets/thumbs/projet-3.jpg')">
+      <div class="proj-overlay">
+        <span class="proj-title">Projet 3</span>
+        <span class="proj-date">2025 — Rig & Motion</span>
+      </div>
+    </a>
+
+    <a class="proj" href="#"
+       data-type="video"
+       data-src="https://player.vimeo.com/video/1082191614?autoplay=1"
+       style="background-image: url('assets/thumbs/projet-4.jpg')">
+      <div class="proj-overlay">
+        <span class="proj-title">Projet 4</span>
+        <span class="proj-date">2024 — Creature Anim</span>
+      </div>
+    </a>
+
+    <a class="proj" href="#"
+       data-type="video"
+       data-src="https://player.vimeo.com/video/1082191614?autoplay=1"
+       style="background-image: url('assets/thumbs/projet-5.jpg')">
+      <div class="proj-overlay">
+        <span class="proj-title">Projet 5</span>
+        <span class="proj-date">2024 — Court-métrage</span>
+      </div>
+    </a>
+
+    <a class="proj" href="#"
+       data-type="video"
+       data-src="https://player.vimeo.com/video/1082191614?autoplay=1"
+       style="background-image: url('assets/thumbs/projet-6.jpg')">
+      <div class="proj-overlay">
+        <span class="proj-title">Projet 6</span>
+        <span class="proj-date">2024 — Motion Design</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX vidéo -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <div class="lightbox-inner">
+    <iframe id="lightboxIframe" src="" frameborder="0"
+      allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<section id="about" class="section">
+  <p class="label">À propos</p>
+  <h2 class="section-title">Qui anime ça.</h2>
+  <div class="about-cols">
+    <p class="about-text">
+      Animateur 3D avec X ans d'expérience dans les domaines du jeu vidéo,
+      du motion design et de l'animation de personnages. Formé à [ton école],
+      je travaille principalement sur Maya et Blender avec une forte appétence
+      pour le rigging et les performances de créatures.
+    </p>
+    <div class="toolbelt">
+      <span class="tool">Maya</span>
+      <span class="tool">Blender</span>
+      <span class="tool">Houdini</span>
+      <span class="tool">Unreal Engine</span>
+      <span class="tool">After Effects</span>
+      <span class="tool">Substance</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="section footer">
+  <p class="label">Contact</p>
+  <h2 class="section-title">Un projet en tête ?</h2>
+  <a href="mailto:hello@example.com" class="footer-email">hello@example.com</a>
+  <div class="footer-links">
+    <a href="#" target="_blank" rel="noopener">ArtStation</a>
+    <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#" target="_blank" rel="noopener">Vimeo</a>
+    <a href="#" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <p class="footer-fine">© 2026 Coulibaly Sina</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
