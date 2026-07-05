@@ -34,8 +34,9 @@ code { font-family: var(--font-mono); font-size: 0.85em; color: var(--text-dim);
 /* ============ SCRUB RAIL ============ */
 .scrub-rail {
   position: fixed; top: 0; left: 0; right: 0; height: 2px;
-  background: transparent; z-index: 300;
+  background: var(--bg); z-index: 300;
 }
+
 .scrub-head {
   height: 100%; width: 0%;
   background: var(--accent);
@@ -69,15 +70,14 @@ code { font-family: var(--font-mono); font-size: 0.85em; color: var(--text-dim);
 .nav-links {
   display: flex; align-items: center; gap: 32px;
   font-size: 0.88rem; color: var(--text-dim);
+  margin-left: auto;
 }
 .nav-links a:hover { color: var(--text); }
 .nav-cta {
-  color: var(--text) !important;
-  border: 1px solid var(--line);
-  padding: 8px 18px;
-  transition: border-color 0.2s;
+  color: var(--text-dim) !important;
+  transition: color 0.2s;
 }
-.nav-cta:hover { border-color: rgba(255,255,255,0.4); }
+.nav-cta:hover { color: var(--text) !important; border: none; }
 
 @media (max-width: 700px) {
   .nav-links { gap: 16px; font-size: 0.82rem; }
