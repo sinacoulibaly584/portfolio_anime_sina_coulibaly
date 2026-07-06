@@ -51,3 +51,30 @@ if (lightbox) {
     if (e.key === 'Escape') closeLightbox();
   });
 }
+
+/* ============ LIGHTBOX IMAGE ============ */
+const imgLightbox = document.createElement('div');
+imgLightbox.className = 'img-lightbox';
+imgLightbox.innerHTML = '<button class="img-lightbox-close">✕</button><img src="" alt="">';
+document.body.appendChild(imgLightbox);
+
+const imgLightboxImg = imgLightbox.querySelector('img');
+
+document.querySelectorAll('.proj-gallery img').forEach(img => {
+  if (img.closest('.img-slider-track')) return;
+  img.addEventListener('click', () => {
+    imgLightboxImg.src = img.src;
+    imgLightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeImgLightbox() {
+  imgLightbox.classList.remove('active');
+  imgLightboxImg.src = '';
+  document.body.style.overflow = '';
+}
+
+imgLightbox.querySelector('.img-lightbox-close').addEventListener('click', closeImgLightbox);
+imgLightbox.addEventListener('click', e => { if (e.target === imgLightbox) closeImgLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeImgLightbox(); });

@@ -48,16 +48,29 @@
 
   <!-- VIDÉO TURNAROUND -->
   <div class="proj-video">
-  <video controls>
-    <source src="../assets/videos/Godess_pandawa_Turnaround.mp4" type="video/mp4">
-  </video>
-</div>
-
-  <!-- GALERIE 2 colonnes -->
-  <div class="proj-gallery proj-gallery-2">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-05-31/468299/1400xAUTO/texture%20normal%202-sinaabdou.jpg" alt="Texture normal map">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-05-31/468299/1400xAUTO/wireframe-sinaabdou.jpg" alt="Wireframe">
+    <video controls>
+      <source src="../assets/videos/Godess_pandawa_Turnaround.mp4" type="video/mp4">
+    </video>
   </div>
+
+  <!-- SLIDER WIREFRAME / TEXTURE -->
+  <div class="before-after" id="baSlider2">
+    <div class="ba-after">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-05-31/468299/3840xAUTO/wireframe-sinaabdou.jpg" alt="Wireframe">
+    </div>
+    <div class="ba-before">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-05-31/468299/texture%20normal%202-sinaabdou.jpg" alt="Texture normal map">
+    </div>
+    <div class="ba-handle" id="baHandle2">
+      <div class="ba-line"></div>
+      <div class="ba-circle"><span>◀</span><span>▶</span></div>
+      <div class="ba-line"></div>
+    </div>
+    <span class="ba-label ba-label-left">AVANT</span>
+    <span class="ba-label ba-label-right">APRÈS</span>
+  </div>
+
+
 
   <!-- TEXTE -->
   <div class="proj-text">
@@ -105,12 +118,24 @@
     <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/826353/1400xAUTO/imgonline-com-ua-twotoone-PXBrz9kWzB-sinaabdou.jpg" alt="Render comparison 2">
   </div>
 
-  <!-- GALERIE 2 colonnes -->
-  <div class="proj-gallery proj-gallery-2">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/282263/1400xAUTO/PHOTOSHO%20FINAL-sinaabdou.jpg" alt="Final Photoshop">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/060151/1400xAUTO/pandawa_nuke_renderfinal-sinaabdou._6%20%283%29.jpg" alt="Final render">
+  <!-- SLIDER AVANT/APRÈS -->
+  <div class="before-after" id="baSlider">
+    <div class="ba-after">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/060151/1400xAUTO/pandawa_nuke_renderfinal-sinaabdou._6%20%283%29.jpg" alt="Après">
+    </div>
+    <div class="ba-before">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/282263/1400xAUTO/PHOTOSHO%20FINAL-sinaabdou.jpg" alt="Avant">
+    </div>
+    <div class="ba-handle" id="baHandle">
+      <div class="ba-line"></div>
+      <div class="ba-circle">
+        <span>◀</span><span>▶</span>
+      </div>
+      <div class="ba-line"></div>
+    </div>
+    <span class="ba-label ba-label-left">AVANT</span>
+    <span class="ba-label ba-label-right">APRÈS</span>
   </div>
-
   <!-- TEXTE FINAL -->
   <div class="proj-text">
     <p>Ultimately, I was able to achieve the overall appearance I envisioned and am satisfied with the outcome!</p>
@@ -144,5 +169,50 @@
 </div>
 
 <script src="../script.js"></script>
+
+<script>
+/* ============ SLIDER AVANT/APRÈS — WIREFRAME / TEXTURE ============ */
+const slider2 = document.getElementById('baSlider2');
+const before2 = slider2.querySelector('.ba-before');
+const handle2 = document.getElementById('baHandle2');
+let dragging2 = false;
+
+function setPos2(x) {
+  const rect = slider2.getBoundingClientRect();
+  let pct = (x - rect.left) / rect.width;
+  pct = Math.min(Math.max(pct, 0), 1);
+  before2.style.clipPath = `inset(0 ${(1 - pct) * 100}% 0 0)`;
+  handle2.style.left = (pct * 100) + '%';
+}
+
+slider2.addEventListener('mousedown', e => { dragging2 = true; setPos2(e.clientX); });
+window.addEventListener('mousemove', e => { if (dragging2) setPos2(e.clientX); });
+window.addEventListener('mouseup', () => dragging2 = false);
+slider2.addEventListener('touchstart', e => { dragging2 = true; setPos2(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchmove', e => { if (dragging2) setPos2(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchend', () => dragging2 = false);
+
+/* ============ SLIDER AVANT/APRÈS — PHOTOSHOP / NUKE RENDER ============ */
+const slider = document.getElementById('baSlider');
+const before = slider.querySelector('.ba-before');
+const handle = document.getElementById('baHandle');
+let dragging = false;
+
+function setPos(x) {
+  const rect = slider.getBoundingClientRect();
+  let pct = (x - rect.left) / rect.width;
+  pct = Math.min(Math.max(pct, 0), 1);
+  before.style.clipPath = `inset(0 ${(1 - pct) * 100}% 0 0)`;
+  handle.style.left = (pct * 100) + '%';
+}
+
+slider.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+window.addEventListener('mouseup', () => dragging = false);
+slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchend', () => dragging = false);
+</script>>
+
 </body>
 </html>

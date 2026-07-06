@@ -56,16 +56,23 @@
     <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/591807/1400xAUTO/sina-coulibaly-plan-01-sinaabdou.00_00_15_21.Still017.png" alt="Render 4">
   </div>
 
-  <!-- GALERIE 3 colonnes — wireframe + textures -->
-  <div class="proj-gallery proj-gallery-3">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-09/375940/1400xAUTO/chambre%20wireframe%204-sinaabdou.jpg" alt="Wireframe">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/062828/1400xAUTO/rgfeg-sinaabdou.0320.jpg" alt="Texture detail">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/062828/1400xAUTO/iuytiug-sinaabdou.jpg" alt="Detail view">
-  </div>
-
-  <div class="proj-gallery proj-gallery-2">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/062828/1400xAUTO/sina-coulibaly-plan-01-sinaabdou.jpg" alt="Final render">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/264735/1400xAUTO/sina-coulibaly-plan-01-sinaabdou.00_00_03_07.Still014.png" alt="Final render 2">
+  <!-- SLIDER 5 IMAGES -->
+  <div class="img-slider" id="imgSlider">
+    <div class="img-slider-track" id="imgSliderTrack">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-09/375940/1400xAUTO/chambre%20wireframe%204-sinaabdou.jpg" alt="Wireframe">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/062828/1400xAUTO/rgfeg-sinaabdou.0320.jpg" alt="Texture detail">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/062828/1400xAUTO/iuytiug-sinaabdou.jpg" alt="Detail view">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/062828/1400xAUTO/sina-coulibaly-plan-01-sinaabdou.jpg" alt="Final render">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2022-09-03/264735/1400xAUTO/sina-coulibaly-plan-01-sinaabdou.00_00_03_07.Still014.png" alt="Final render 2">
+    </div>
+  </div><!-- fin img-slider -->
+  <div class="img-slider-bar" id="imgSliderBar">
+    <div class="img-slider-seg active" data-index="0"></div>
+    <div class="img-slider-seg" data-index="1"></div>
+    <div class="img-slider-seg" data-index="2"></div>
+    <div class="img-slider-seg" data-index="3"></div>
+    <div class="img-slider-seg" data-index="4"></div>
+    <div class="img-slider-handle" id="imgSliderHandle"></div>
   </div>
 
   <!-- TURNAROUNDS -->
@@ -109,5 +116,59 @@
 </div>
 
 <script src="../script.js"></script>
+<script>
+/* ============ SLIDER CONTINU CROSSFADE ============ */
+const imgs = document.querySelectorAll('.img-slider-track img');
+const segs = document.querySelectorAll('.img-slider-seg');
+const bar = document.getElementById('imgSliderBar');
+const handle = document.getElementById('imgSliderHandle');
+let dragging = false;
+let currentPct = 0;
+
+imgs[0].style.opacity = 1;
+imgs[0].style.zIndex = 2;
+
+function applyPct(pct) {
+  currentPct = Math.min(Math.max(pct, 0), 1);
+  const total = imgs.length - 1;
+  const pos = currentPct * total;
+  const i = Math.floor(pos);
+  const frac = pos - i;
+
+  imgs.forEach((img, idx) => {
+    img.style.opacity = 0;
+    img.style.zIndex = 1;
+  });
+
+  imgs[i].style.opacity = 1;
+  imgs[i].style.zIndex = 2;
+
+  if (i < total) {
+    imgs[i + 1].style.zIndex = 3;
+    imgs[i + 1].style.opacity = frac;
+  }
+
+  handle.style.left = (currentPct * 100) + '%';
+  const activeIdx = Math.round(currentPct * total);
+  segs.forEach((s, idx) => s.classList.toggle('active', idx === activeIdx));
+}
+function dragTo(x) {
+  const rect = bar.getBoundingClientRect();
+  applyPct((x - rect.left) / rect.width);
+}
+
+handle.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+window.addEventListener('mousemove', e => { if (dragging) dragTo(e.clientX); });
+window.addEventListener('mouseup', () => dragging = false);
+handle.addEventListener('touchstart', () => dragging = true, { passive: true });
+window.addEventListener('touchmove', e => { if (dragging) dragTo(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchend', () => dragging = false);
+
+segs.forEach((seg, idx) => {
+  seg.addEventListener('click', () => applyPct(idx / (imgs.length - 1)));
+});
+
+applyPct(0);
+</script>
 </body>
 </html>
