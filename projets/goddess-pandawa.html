@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +22,8 @@
 <header class="nav visible" id="mainNav">
   <nav class="nav-links">
     <a href="../index.html#showreel">Showreel</a>
-    <a href="../index.html#projets">Projets</a>
-    <a href="../index.html#about">À propos</a>
+    <a href="../index.html#projets">Projects</a>
+    <a href="../index.html#about">About</a>
     <a href="../index.html#contact" class="nav-cta">Contact</a>
   </nav>
 </header>
@@ -66,11 +66,9 @@
       <div class="ba-circle"><span>◀</span><span>▶</span></div>
       <div class="ba-line"></div>
     </div>
-    <span class="ba-label ba-label-left">AVANT</span>
-    <span class="ba-label ba-label-right">APRÈS</span>
+    <span class="ba-label ba-label-left">BEFORE</span>
+    <span class="ba-label ba-label-right">AFTER</span>
   </div>
-
-
 
   <!-- TEXTE -->
   <div class="proj-text">
@@ -103,7 +101,7 @@
   <!-- GALERIE 2 colonnes -->
   <div class="proj-gallery proj-gallery-2">
     <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/338610/1400xAUTO/test%20pose_pandawa_v010-sinaabdou.0011.ma_%20-%20Autodesk%20MAYA%202023.3_%20E__OneDrive%20Jack.b_OneDrive_travail%20ecole%20perso_SCENE_lighting_PROJECT_PANDAWA_assets_v011_test%20pose_pandawa_v010.0011.ma%2001_06_2024%2015_16_44.png" alt="Maya pose test">
-    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-05-31/013014/1400xAUTO/test%20pose_pandawa_v010-sinaabdou.0011.0000.png" alt="Pose test render">
+    <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/013014/1400xAUTO/test%20pose_pandawa_v010-sinaabdou.0011.0000.png" alt="Pose test render">
   </div>
 
   <!-- TEXTE -->
@@ -121,10 +119,10 @@
   <!-- SLIDER AVANT/APRÈS -->
   <div class="before-after" id="baSlider">
     <div class="ba-after">
-      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/060151/1400xAUTO/pandawa_nuke_renderfinal-sinaabdou._6%20%283%29.jpg" alt="Après">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/060151/1400xAUTO/pandawa_nuke_renderfinal-sinaabdou._6%20%283%29.jpg" alt="After">
     </div>
     <div class="ba-before">
-      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/282263/1400xAUTO/PHOTOSHO%20FINAL-sinaabdou.jpg" alt="Avant">
+      <img src="https://d3stdg5so273ei.cloudfront.net/sinaabdou/2024-06-01/282263/1400xAUTO/PHOTOSHO%20FINAL-sinaabdou.jpg" alt="Before">
     </div>
     <div class="ba-handle" id="baHandle">
       <div class="ba-line"></div>
@@ -133,9 +131,10 @@
       </div>
       <div class="ba-line"></div>
     </div>
-    <span class="ba-label ba-label-left">AVANT</span>
-    <span class="ba-label ba-label-right">APRÈS</span>
+    <span class="ba-label ba-label-left">BEFORE</span>
+    <span class="ba-label ba-label-right">AFTER</span>
   </div>
+
   <!-- TEXTE FINAL -->
   <div class="proj-text">
     <p>Ultimately, I was able to achieve the overall appearance I envisioned and am satisfied with the outcome!</p>
@@ -150,7 +149,7 @@
 
   <!-- LOGICIELS -->
   <div class="proj-tools">
-    <p class="proj-tools-label">Logiciels utilisés</p>
+    <p class="proj-tools-label">Software used</p>
     <div class="toolbelt">
       <span class="tool">Autodesk Maya</span>
       <span class="tool">ZBrush</span>
@@ -163,7 +162,7 @@
 
   <!-- NAVIGATION -->
   <div class="proj-nav">
-    <a href="../index.html#projets" class="proj-nav-back">← Retour aux projets</a>
+    <a href="../index.html#projets" class="proj-nav-back">← Back to projects</a>
   </div>
 
 </div>
@@ -171,7 +170,7 @@
 <script src="../script.js"></script>
 
 <script>
-/* ============ SLIDER AVANT/APRÈS — WIREFRAME / TEXTURE ============ */
+/* ============ SLIDER BEFORE/AFTER — WIREFRAME / TEXTURE ============ */
 const slider2 = document.getElementById('baSlider2');
 const before2 = slider2.querySelector('.ba-before');
 const handle2 = document.getElementById('baHandle2');
@@ -192,7 +191,7 @@ slider2.addEventListener('touchstart', e => { dragging2 = true; setPos2(e.touche
 window.addEventListener('touchmove', e => { if (dragging2) setPos2(e.touches[0].clientX); }, { passive: true });
 window.addEventListener('touchend', () => dragging2 = false);
 
-/* ============ SLIDER AVANT/APRÈS — PHOTOSHOP / NUKE RENDER ============ */
+/* ============ SLIDER BEFORE/AFTER — PHOTOSHOP / NUKE RENDER ============ */
 const slider = document.getElementById('baSlider');
 const before = slider.querySelector('.ba-before');
 const handle = document.getElementById('baHandle');
@@ -212,7 +211,7 @@ window.addEventListener('mouseup', () => dragging = false);
 slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
 window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
 window.addEventListener('touchend', () => dragging = false);
-</script>>
+</script>
 
 </body>
 </html>
