@@ -1,5 +1,6 @@
-.proj-hero-img { 
-  object-position: center 80%;
+/* Position du hero — Tilu */
+.proj-hero-img {
+  object-position: center 60%;
   transform: scale(1.3);
   transform-origin: center 60%;
 }
@@ -9,10 +10,6 @@
   font-size: 1.4rem; color: var(--text);
   letter-spacing: -0.01em;
 }
-
-@import url('project.css');
-
-.proj-hero-img { object-position: center 60%; }
 
 /* ============ IMG SLIDER ============ */
 .img-slider {
@@ -27,6 +24,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  background: #000;
 }
 .img-slider-track img {
   position: absolute;
@@ -45,10 +43,8 @@
   position: relative;
   display: flex;
   gap: 4px;
-  padding: -20px 0;
   width: 100%;
   margin: 0 auto;
-  
 }
 .img-slider-seg {
   flex: 1;
@@ -82,12 +78,3 @@
   font-size: 0.5rem;
 }
 .img-slider-handle:active { cursor: grabbing; }
-
-.img-slider-track {
-  background: #000;
-}
-.img-slider-track img {
-  object-fit: contain;
-  background: #000;
-}
-

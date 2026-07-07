@@ -1,5 +1,4 @@
-@import url('project.css');
-
+/* Position du hero — Goddess Pandawa */
 .proj-hero-img { object-position: center 30%; }
 
 .before-after {
@@ -62,5 +61,3 @@
 }
 .ba-label-left { left: 16px; }
 .ba-label-right { right: 16px; }
-
-
